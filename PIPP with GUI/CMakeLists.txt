@@ -3,6 +3,11 @@ project(ImagePipeline)
 
 set(CMAKE_CXX_STANDARD 17)
 
+# to resolve error - enable Qt's automatic MOC processing.
+set(CMAKE_AUTOMOC ON)
+set(CMAKE_AUTOUIC ON)
+set(CMAKE_AUTORCC ON)
+
 # Find packages
 find_package(OpenCV REQUIRED)
 find_package(Qt5 COMPONENTS Widgets QUIET)
@@ -13,7 +18,9 @@ set(SOURCES
     src/main.cpp
     src/pipeline.cpp
     src/filters.cpp
+    src/performance.cpp
     src/gui.cpp
+    src/gui.h         
 )
 
 add_executable(pipeline ${SOURCES})
