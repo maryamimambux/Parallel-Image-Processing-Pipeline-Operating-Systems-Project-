@@ -1,7 +1,3 @@
-
-#include "gui.h"
-
-/*
 #include "gui.h"
 
 #ifdef GUI_ENABLED
@@ -204,4 +200,3 @@ void PipelineWindow::log(const QString& message) {
 }
 
 #endif // GUI_ENABLED
-*/
