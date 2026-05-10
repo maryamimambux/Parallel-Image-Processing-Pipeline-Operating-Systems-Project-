@@ -1,18 +1,3 @@
-
-
-/*
-
-The GUI is causing too much trouble. Let's skip Qt GUI completely — 
-your project already works perfectly without it. 
-The terminal output IS your demonstration. Let me simplify everything:
-
-*/
-
-#ifndef GUI_H
-#define GUI_H
-#endif
-
-/*
 #ifndef GUI_H
 #define GUI_H
 
@@ -92,4 +77,3 @@ void launch_gui(int argc, char* argv[], int total_images);
 
 #endif // GUI_ENABLED
 #endif // GUI_H
-*/
