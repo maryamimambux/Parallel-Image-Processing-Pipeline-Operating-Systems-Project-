@@ -3,7 +3,9 @@ project(ImagePipeline)
 
 set(CMAKE_CXX_STANDARD 17)
 
+# Find packages
 find_package(OpenCV REQUIRED)
+find_package(Qt5 COMPONENTS Widgets QUIET)
 
 include_directories(${OpenCV_INCLUDE_DIRS} src)
 
@@ -12,8 +14,15 @@ set(SOURCES
     src/pipeline.cpp
     src/filters.cpp
     src/gui.cpp
-    src/performance.cpp
 )
 
 add_executable(pipeline ${SOURCES})
-target_link_libraries(pipeline ${OpenCV_LIBS} pthread)
+
+if(Qt5_FOUND)
+    message(STATUS "Qt5 found — GUI enabled")
+    target_compile_definitions(pipeline PRIVATE GUI_ENABLED)
+    target_link_libraries(pipeline ${OpenCV_LIBS} pthread Qt5::Widgets)
+else()
+    message(STATUS "Qt5 not found — running without GUI")
+    target_link_libraries(pipeline ${OpenCV_LIBS} pthread)
+endif()
